@@ -10,7 +10,17 @@ reescrito.
 
 ---
 
-## 1. Criar a conta e o repositório (uma vez)
+> ## Estado em 05/10/2026
+>
+> - [x] Conta criada: **`advogadomma2026`** (`migueldeandradeadv@gmail.com`)
+> - [x] Repositório: <https://github.com/advogadomma2026/advogadomma> (público)
+> - [x] Código enviado (`main`), GitHub Pages publicado
+> - [x] `xtitoxv` (CriaSiteVH) adicionado como **colaborador**
+> - [x] Domínio customizado `www.advogadomma.com.br` cadastrado no Pages
+> - [ ] **Pendente:** trocar os registros DNS no registro.br (seção 4)
+> - [ ] **Pendente:** remover os domínios do projeto na Vercel (seção 6)
+
+## 1. Criar a conta e o repositório (uma vez) — concluído
 
 1. Criar a conta em <https://github.com/join> com o e-mail
    `migueldeandradeadv@gmail.com` (o GitHub manda um código de confirmação
@@ -25,7 +35,7 @@ reescrito.
      precisa proteger (credenciais) nunca entra nele.
    - **Não** marque "Add a README" — o repositório precisa ficar vazio.
 
-## 2. Subir o código
+## 2. Subir o código — concluído
 
 Na pasta `siteadvmma`, com o Git instalado:
 
@@ -33,41 +43,44 @@ Na pasta `siteadvmma`, com o Git instalado:
 git init -b main
 git add .
 git commit -m "Site Advocacia MMA"
-git remote add origin https://github.com/SEU-USUARIO/advogadomma.git
+git remote add origin https://github.com/advogadomma2026/advogadomma.git
 git push -u origin main
 ```
 
 > O arquivo `CNAME` já está na raiz com `www.advogadomma.com.br`, e o
 > `.nojekyll` também. **Não apague nenhum dos dois.**
 
-## 3. Ligar o GitHub Pages ao repositório
+## 3. Ligar o GitHub Pages ao repositório — concluído
 
 1. No repositório: **Settings → Pages**.
 2. Em **Build and deployment → Source**, escolher **Deploy from a branch**.
 3. Branch: `main`, pasta: `/ (root)`. Salvar.
-4. Em ~1 minuto aparece o endereço `https://SEU-USUARIO.github.io/advogadomma/`.
-   Esse endereço já funciona e serve de teste antes de configurar o domínio.
+4. O endereço de teste é `https://advogadomma2026.github.io/advogadomma/`
+   (redireciona para o domínio customizado assim que o DNS for trocado).
 
-## 4. Apontar o domínio (registro.br)
+## 4. Apontar o domínio (registro.br) — PENDENTE
 
 O domínio é do cliente e **nada precisa ser transferido**: só muda para onde
-ele aponta. No painel do registro.br → *Meus Domínios* → `advogadomma.com.br`
-→ *DNS* → *Editar Zona*:
+ele aponta. Hoje os registros ainda apontam para a Vercel
+(`www` → `0bc0940bfd554ae4.vercel-dns-017.com`, apex → `216.198.79.1` /
+`64.29.17.1`). No painel do registro.br → *Meus Domínios* →
+`advogadomma.com.br` → *DNS* → *Editar Zona*:
 
-| Tipo   | Nome (host)        | Valor                  |
-|--------|--------------------|------------------------|
-| ALIAS  | vazio / raiz (`@`) | `SEU-USUARIO.github.io` |
-| CNAME  | `www`              | `SEU-USUARIO.github.io` |
+| Tipo   | Nome (host)        | Valor                            |
+|--------|--------------------|----------------------------------|
+| ALIAS  | vazio / raiz (`@`) | `advogadomma2026.github.io`      |
+| CNAME  | `www`              | `advogadomma2026.github.io`      |
 
 Observações:
 
 - O painel do registro.br chama "ALIAS" de **ALIAS** ou **ANAME** (depende da
   versão da tela). É o registro que faz o apontamento do domínio sem `www`
   direto para o GitHub Pages.
-- Se a conta `SEU-USUARIO` for uma **Organização** em vez de conta pessoal,
-  use os IPs fixos do GitHub Pages no lugar do ALIAS:
-  `192.30.252.153`, `192.30.254.153`, `192.30.255.153`, `192.30.256.153`, `192.30.257.153`.
-  (Só nesse caso; conta pessoal usa ALIAS.)
+- Se o registro.br **não** oferecer ALIAS/ANAME, use os IPs do GitHub Pages
+  em 5 registros `A` na raiz:
+  `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
+- O `CNAME` de `www` aponta **sem o nome do repositório**
+  (`advogadomma2026.github.io`, e não `advogadomma2026.github.io/advogadomma`).
 - Depois de salvar, pode levar de 5 minutos a algumas horas para propagar. O
   GitHub emite o certificado HTTPS automaticamente em até 1 hora. Enquanto o
   certificado não sai, o site responde em `http` — não é erro.
@@ -85,6 +98,19 @@ arquivo `CNAME` com **duas linhas**:
 www.advogadomma.com.br
 advogadomma.com.br
 ```
+
+## 5. Ajustar a permissão do colaborador
+
+Em repositório **público** o GitHub **não permite** conceder `Admin` nem
+`Maintain` — a API responde `Cannot assign ... permission of admin`. O máximo
+disponível é **Write**. Consequências:
+
+- `xtitoxv` consegue enviar commits, criar branches e tags (publicar o site). ✔
+- Mudar **Settings → Pages**, domínio customizado,Secrets e excluir o
+  repositório continua sendo só do dono (`advogadomma2026`). ✘
+
+Se for preciso dar controle total no futuro, o caminho é deixar o repositório
+privado (exige plano pago) ou usar uma organização com o plano correto.
 
 ## 6. Desligar a Vercel (depois que o site novo estiver no ar)
 
