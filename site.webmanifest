@@ -1,0 +1,22 @@
+{
+  "name": "Advocacia e Consultoria Jurídica MMA",
+  "short_name": "MMA Advocacia",
+  "description": "Advocacia e Consultoria Jurídica MMA — atuação em 15 áreas do Direito em Salvador/BA e atendimento remoto. Consulta inicial gratuita, sigilosa e feita diretamente pelo advogado.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000F22",
+  "theme_color": "#000F22",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/assets/img/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+arq
+build.py
+README.md
+CONTINUACAO.md
+RETOMAR-DOMINIO.md
+ocr*.ps1
+prep_ocr*.py
+dl_img.py
+make_logo.py
+check_logo.py

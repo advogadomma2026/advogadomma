@@ -1,0 +1,17 @@
+.vercel
+
+# Material de trabalho interno — não vai para o repositório público
+arq/
+README.md
+CONTINUACAO.md
+RETOMAR-DOMINIO.md
+ocr*.ps1
+prep_ocr*.py
+dl_img.py
+make_logo.py
+check_logo.py
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
